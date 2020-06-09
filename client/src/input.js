@@ -5,16 +5,25 @@ import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import Alert from '@material-ui/lab/Alert';
+import './App.css';
+import Grid from '@material-ui/core/Grid';
 
 class Input extends Component {
     constructor(props) {
         super(props);
         this.state= {
-            input: 0,
-            prediction: 0,
-            graphSelected: null,
-            functionSelected: null,
+            input: '',
+            prediction: '',
+            graphSelected: 0,
+            functionSelected: 0,
+            errorText: '',
+            showError: false,
             graphs:    [
+                {
+                    value: 0,
+                    label: 'Please select'
+                },
                 {
                     value: 'line',
                     label: 'Line',
@@ -26,19 +35,81 @@ class Input extends Component {
                 {
                     value: 'area',
                     label: 'Area',
-                }]
+            }],
+            functions: [
+                {
+                    value: 0,
+                    label: 'Please select'
+                },
+                {
+                    value: 1,
+                    label: 'Fibonacci(n)'
+                },
+                {
+                    value: 2,
+                    label: 'Square Root(n)'
+                },
+                {
+                    value: 3,
+                    label: 'Merge Sort n random integers'
+                }
+            ]
         }
-    }
-
-    handleChange(){
-        console.log('handlechange');
     }
 
     submit() {
         console.log('submit');
+        console.log('graph', this.state.graphSelected);
+        console.log('fn', this.state.functionSelected);
+        console.log('input', this.state.input);
+        console.log('prediction', this.state.prediction);
+        if (this.state.graphSelected !== 0 && this.state.functionSelected !== 0 && this.state.input !== '' && this.state.prediction !== '') {
+            this.setState({showError: false, errorText: ''});
+            this.submitForm();
+        } else {
+            this.setState({showError: true, errorText: 'Please provide input for every box in the form.'});
+        }
     }
 
+    submitForm() {
+        const formInput = {
+            inputValue: this.state.input,
+            predictionValue: this.state.prediction,
+            graphSelected: this.state.graphSelected,
+            functionSelected: this.state.functionSelected
+        };
+        fetch('/submit', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formInput)
+        })
+            .then(res => {
+                console.log(res.status);
+                if (res.status !== 200) {
+                    this.setState({showError: true, errorText: res.json()});
+                    return;
+                }
+                return res.json();
+            }).then(output => {
+            console.log(output);
+            this.createGraphs(output.data);
+        }).catch(e => {
+            console.log('error: ', e);
+            this.setState({showError: true, errorText: 'error'});
+            console.log(this.state.errorText);
+        });
+    }
+
+    createGraphs(data) {
+        // TODO: create graphs from data response
+        console.log('creating graphs');
+        console.log(data);
+    }
     updateInput(key, value) {
+        console.log('KEY: ', key);
+        console.log('VALUE: ', value);
         this.setState({
             [key]: value
         });
@@ -49,34 +120,38 @@ class Input extends Component {
             <div>
                 <div>
                     <FormControl variant="outlined">
-                        <InputLabel htmlFor="command-input">Input value</InputLabel>
+                        <InputLabel htmlFor="command-input">Input value n</InputLabel>
                         <OutlinedInput
                             id="input-value"
+                            type="number"
                             value={this.state.input}
                             onChange={e => this.updateInput("input", e.target.value)}
                             labelWidth={120}
                         />
                     </FormControl>
                 </div>
+                <br></br>
                 <div>
                     <FormControl variant="outlined">
                         <InputLabel htmlFor="command-input">Prediction input</InputLabel>
                         <OutlinedInput
                             id="prediction-input"
+                            type="number"
                             value={this.state.prediction}
                             onChange={e => this.updateInput("prediction", e.target.value)}
                             labelWidth={120}
                         />
                     </FormControl>
                 </div>
+                <br></br>
                 <div>
                     <TextField
                         id="select-graph"
                         select
                         label="Select Graph"
                         value={this.state.graphSelected}
-                        onChange={this.handleChange()}
-                        helperText="Please select your currency"
+                        onChange={e => this.updateInput("graphSelected", e.target.value)}
+                        helperText="Please select a graph type"
                     >
                         {this.state.graphs.map((option) => (
                             <MenuItem key={option.value} value={option.value}>
@@ -85,11 +160,34 @@ class Input extends Component {
                         ))}
                     </TextField>
                 </div>
+                <br></br>
                 <div>
-                    <Button size="large" variant="contained" color="primary" onClick={() => this.submit()}>
-                        Enter
-                    </Button>
+                    <TextField
+                        id="select-function"
+                        select
+                        label="Select function"
+                        value={this.state.functionSelected}
+                        onChange={e => this.updateInput("functionSelected", e.target.value)}
+                        helperText="Please select a function"
+                    >
+                        {this.state.functions.map((option) => (
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
                 </div>
+                <br></br>
+                <div>
+                    <Button size="large" variant="contained" color="primary" onClick={() => this.submit()}>Enter</Button>
+                </div>
+                <br></br>
+                <div>
+                    {this.state.showError &&
+                    <Alert className="error" severity="error">{this.state.errorText}</Alert>
+                    }
+                </div>
+
             </div>
         );
     }
