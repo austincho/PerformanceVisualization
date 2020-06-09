@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Runtime Visualization</h1>
+      <h1>Runtime Visualization & Prediction</h1>
     <Input/>
     </div>
   );
