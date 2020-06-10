@@ -58,14 +58,13 @@ class Input extends Component {
     }
 
     submit() {
-        console.log('submit');
-        console.log('graph', this.state.graphSelected);
-        console.log('fn', this.state.functionSelected);
-        console.log('input', this.state.input);
-        console.log('prediction', this.state.prediction);
         if (this.state.graphSelected !== 0 && this.state.functionSelected !== 0 && this.state.input !== '' && this.state.prediction !== '') {
-            this.setState({showError: false, errorText: ''});
-            this.submitForm();
+            if (parseInt(this.state.prediction) <= 0 || parseInt(this.state.input) <= 0) {
+                this.setState({showError: true, errorText: 'Please choose an Integer > 0'});
+            } else {
+                this.setState({showError: false, errorText: ''});
+                this.submitForm();
+            }
         } else {
             this.setState({showError: true, errorText: 'Please provide input for every box in the form.'});
         }

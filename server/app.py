@@ -1,6 +1,7 @@
 import time
 from flask import Flask
 from flask import jsonify, request, make_response
+import profileclient
 
 app = Flask(__name__)
 
@@ -21,6 +22,7 @@ def submit():
     #           graphSelected
     #           functionSelected
     json_data = request.get_json()
+    profiling_data = profileclient.Profiler().testProfile(int(json_data['functionSelected']), int(json_data['inputValue']), int(json_data['predictionValue']))
     input = json_data['inputValue']
     prediction = json_data['predictionValue']
     mock_return_obj = {
