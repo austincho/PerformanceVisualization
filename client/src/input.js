@@ -6,6 +6,8 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Alert from '@material-ui/lab/Alert';
+import Plot from 'react-plotly.js';
+
 import './App.css';
 import Grid from '@material-ui/core/Grid';
 
@@ -14,6 +16,8 @@ class Input extends Component {
         super(props);
         this.state= {
             input: '',
+            data: null,
+            layout: null,
             prediction: '',
             graphSelected: 0,
             functionSelected: 0,
@@ -102,10 +106,54 @@ class Input extends Component {
     }
 
     createGraphs(data) {
-        // TODO: create graphs from data response
+        // TODO: parse (x,y) points for graphs from data parameter
+
+        let traceData, layout;
+        switch (this.state.graphSelected) {
+            case "line":
+                let trace = {
+                    x:[1,2,3,4,5],
+                    y:[1,2,3,4,15],
+                    mode: 'lines',
+                    name: 'Test'
+                }
+                traceData = [trace];
+                layout = {
+                    title: 'Line Chart'
+                };
+                break;
+
+            case "bar":
+                let bar = {
+                    x:[1,2,3,4,5],
+                    y:[1,2,3,4,5],
+                    type: 'bar'
+                }
+                traceData = [bar];
+                layout = {
+                    title: 'Bar Report'
+                }
+                break;
+
+            case "area":
+                let area = {
+                    x:[1,2,3,4,5],
+                    y:[1,2,3,4,15],
+                    mode: 'lines',
+                    fill: 'tozeroy',
+                    name: 'Test'
+                }
+                traceData = [area];
+                layout = {
+                    title: 'Memory Usage Area Chart'
+                };
+                break;
+        }
+        this.setState({data :traceData, layout: layout});
         console.log('creating graphs');
         console.log(data);
     }
+
     updateInput(key, value) {
         console.log('KEY: ', key);
         console.log('VALUE: ', value);
@@ -186,7 +234,16 @@ class Input extends Component {
                     <Alert className="error" severity="error">{this.state.errorText}</Alert>
                     }
                 </div>
-
+                {this.state.data !== null && this.state.layout !== null &&
+                <Plot
+                    data={this.state.data}
+                    layout={this.state.layout}
+                    // frames={this.state.frames}
+                    // config={this.state.config}
+                    // onInitialized={(figure) => this.setState(figure)}
+                    // onUpdate={(figure) => this.setState(figure)}
+                />
+                }
             </div>
         );
     }
