@@ -3,8 +3,8 @@
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 1,0.000,0.000,0.000,0.000,/Users/rohangarg/Documents/2020ST1/CPSC410/PerformanceVisualization/server/functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
 2,function,calls,in,0.000,seconds

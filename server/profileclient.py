@@ -65,6 +65,9 @@ class Profiler:
     def getNRuntimes(self, fn_code, n, m):
         if(path.exists("./final.csv")):
             os.remove("./final.csv")
+        with open('final.csv', 'a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([fn_code,n,m])
         if(path.exists("./test.csv")):
             os.remove("./test.csv")
         for i in range(1, n+1):
