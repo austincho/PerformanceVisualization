@@ -3,6 +3,9 @@ from functioncalls import fibonacci, square_root, merge_sort
 import tracemalloc
 import io
 import numpy as np
+import csv
+import os.path
+from os import path
 
 class Profiler:
     def __init__(self):
@@ -29,13 +32,26 @@ class Profiler:
         s = io.StringIO()
         ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
         ps.print_stats()
+        print(s.getvalue())
         result  = s.getvalue()
-        # result='ncalls'+result.split('ncalls')[-1]
         result='\n'.join([','.join(line.rstrip().split(None,5)) for line in result.split('\n')])
         # save it to disk
-        with open('test.csv', 'w+') as f:
+        with open('test.csv', 'a') as f:
             f.write(result)
             f.close()
+
+    def fixCSV(self):
+        with open('test.csv', newline='') as csvfile:
+            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+            for row in spamreader:
+                if len(row)>0:
+                    checkarray = row[0].split(',')
+                    if(len(checkarray) > 5):
+                        if("functioncalls" in checkarray[5]):
+                            print("hit")
+                            with open('final.csv', 'a', newline='') as file:
+                                writer = csv.writer(file)
+                                writer.writerow(checkarray)
 
     def testMemUsage(self, fn_code, n, m):
         function = self.get_function(fn_code)
@@ -46,10 +62,14 @@ class Profiler:
         tracemalloc.stop()
 
 
-    def getNRuntimes(self, fn_code, n):
-        func = self.get_function(fn_code)
+    def getNRuntimes(self, fn_code, n, m):
+        if(path.exists("./final.csv")):
+            os.remove("./final.csv")
+        if(path.exists("./test.csv")):
+            os.remove("./test.csv")
         for i in range(1, n+1):
-            print("Lol")
+            self.testProfile(fn_code,i,0)
+        self.fixCSV()
 
 if __name__ == "__main__":
     p = Profiler()
@@ -57,4 +77,5 @@ if __name__ == "__main__":
     print("<----------------- MEMORY USAGE ----------------->")
     p.testMemUsage(1, 25, 13)
     print("<----------------- RUNTIME DATA ----------------->")
-    p.testProfile(3, 90, 13)
+    #p.testProfile(1, 9, 13)
+    p.getNRuntimes(1,9,13)
