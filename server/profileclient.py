@@ -19,12 +19,13 @@ class Profiler:
         elif fn_code == 3:
             return merge_sort
 
-    def testProfile(self, fn_code, n, m):
+    def testProfile(self, fn_code, n):
         if(fn_code == 3):
             arr = np.random.randint(n, size=n)
             n = arr
         pr = cProfile.Profile()
         function = self.get_function(fn_code)
+        print(function)
         pr.enable()
         function(n)
         pr.disable()
@@ -36,22 +37,22 @@ class Profiler:
         result  = s.getvalue()
         result='\n'.join([','.join(line.rstrip().split(None,5)) for line in result.split('\n')])
         # save it to disk
-        with open('test.csv', 'a') as f:
+        with open('./test.csv', 'a') as f:
             f.write(result)
             f.close()
 
     def fixCSV(self):
-        with open('test.csv', newline='') as csvfile:
-            spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        with open('./test.csv', newline='') as csvfile:
+            spamreader = csv.reader(csvfile)
             for row in spamreader:
-                if len(row)>0:
-                    checkarray = row[0].split(',')
-                    if(len(checkarray) > 5):
-                        if("functioncalls" in checkarray[5]):
-                            print("hit")
-                            with open('final.csv', 'a', newline='') as file:
-                                writer = csv.writer(file)
-                                writer.writerow(checkarray)
+                if(len(row) > 5):
+                    if("functioncalls" in row[5]):
+                        print("hit")
+                        with open('./final.csv', 'a', newline='') as file:
+                            writer = csv.writer(file)
+                            row.pop(5)
+                            row[0] = row[0].split("/")[0]
+                            writer.writerow(row)
 
     def testMemUsage(self, fn_code, n, m):
         function = self.get_function(fn_code)
@@ -65,13 +66,13 @@ class Profiler:
     def getNRuntimes(self, fn_code, n, m):
         if(path.exists("./final.csv")):
             os.remove("./final.csv")
-        with open('final.csv', 'a', newline='') as file:
+        with open('./final.csv', 'a', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow([fn_code,n,m])
+            writer.writerow(["ncalls", "tottime", "percall", "cumtime", "percall"])
         if(path.exists("./test.csv")):
             os.remove("./test.csv")
         for i in range(1, n+1):
-            self.testProfile(fn_code,i,0)
+            self.testProfile(fn_code, i)
         self.fixCSV()
 
 if __name__ == "__main__":

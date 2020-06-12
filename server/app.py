@@ -1,7 +1,10 @@
 import time
 from flask import Flask
 from flask import jsonify, request, make_response
-import profileclient
+
+from server import regression, profileclient
+from server.profileclient import Profiler
+
 
 app = Flask(__name__)
 
@@ -22,9 +25,10 @@ def submit():
     #           graphSelected
     #           functionSelected
     json_data = request.get_json()
-    profiling_data = profileclient.Profiler().testProfile(int(json_data['functionSelected']), int(json_data['inputValue']), int(json_data['predictionValue']))
-    input = json_data['inputValue']
-    prediction = json_data['predictionValue']
+    inputVal = int(json_data['inputValue'])
+    predictionVal = int(json_data['predictionValue'])
+    fn_code = int(json_data['functionSelected'])
+    # profiling_data = profileclient.Profiler().testProfile(fn_code, inputVal)
     mock_return_obj = {
         "points": [
             [1,1],
@@ -33,9 +37,13 @@ def submit():
             [4,4],
             [5,5]
         ],
-        "n": input,
-        "m": prediction
+        "n": inputVal,
+        "m": predictionVal
     }
+
+    p = Profiler()
+    p.getNRuntimes(fn_code, inputVal, predictionVal)
+    regression.predict(inputVal, predictionVal)
     return jsonify(status=200, data=mock_return_obj)
 
 if __name__ == '__main__':
