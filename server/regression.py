@@ -12,7 +12,8 @@ from sklearn.preprocessing import StandardScaler
 
 from server.app import *
 
-def predict(input, prediction):
+
+def predict(inputVal, predictionVal):
     actual = []
     df_train = pd.read_csv("./final.csv", header=0, index_col=False)
     actual = df_train["tottime"].tolist()
@@ -48,9 +49,9 @@ def predict(input, prediction):
     y_train = df_train["tottime"]
     y_test = df_test["tottime"]
 
-    print(X_train_imp_encode.shape)
-    print("===========")
-    print(y_train.shape)
+    # print(X_train_imp_encode.shape)
+    # print("===========")
+    # print(y_train.shape)
 
     lr = Ridge()
     lr.fit(X_train_imp_encode, y_train)
@@ -58,7 +59,7 @@ def predict(input, prediction):
     predictions = []
 
     # now predict can be used with lr
-    for x in range(input + 1, prediction + 1):
+    for x in range(inputVal + 1, predictionVal + 1):
         predictions.extend(lr.predict([[x]]))
 
     return {"predictions": predictions,

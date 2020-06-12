@@ -7,6 +7,7 @@ import csv
 import os.path
 from os import path
 
+
 class Profiler:
     def __init__(self):
         self.name = "Test"
@@ -20,7 +21,7 @@ class Profiler:
             return merge_sort
 
     def testProfile(self, fn_code, n):
-        if(fn_code == 3):
+        if (fn_code == 3):
             arr = np.random.randint(n, size=n)
             n = arr
         pr = cProfile.Profile()
@@ -34,8 +35,8 @@ class Profiler:
         ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
         ps.print_stats()
         # print(s.getvalue())
-        result  = s.getvalue()
-        result='\n'.join([','.join(line.rstrip().split(None,5)) for line in result.split('\n')])
+        result = s.getvalue()
+        result = '\n'.join([','.join(line.rstrip().split(None, 5)) for line in result.split('\n')])
         # save it to disk
         with open('./test.csv', 'a') as f:
             f.write(result)
@@ -45,8 +46,8 @@ class Profiler:
         with open('./test.csv', newline='') as csvfile:
             spamreader = csv.reader(csvfile)
             for row in spamreader:
-                if(len(row) > 5):
-                    if("functioncalls" in row[5]):
+                if (len(row) > 5):
+                    if ("functioncalls" in row[5]):
                         # print("hit")
                         with open('./final.csv', 'a', newline='') as file:
                             writer = csv.writer(file)
@@ -59,21 +60,21 @@ class Profiler:
         tracemalloc.start()
         function(n)
         current, peak = tracemalloc.get_traced_memory()
-        print(f"Current memory usage is {current / 10**6}MB; Peak was {peak / 10**6}MB")
+        print(f"Current memory usage is {current / 10 ** 6}MB; Peak was {peak / 10 ** 6}MB")
         tracemalloc.stop()
 
-
     def getNRuntimes(self, fn_code, n, m):
-        if(path.exists("./final.csv")):
+        if (path.exists("./final.csv")):
             os.remove("./final.csv")
         with open('./final.csv', 'a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["ncalls", "tottime", "percall", "cumtime", "percall"])
-        if(path.exists("./test.csv")):
+        if (path.exists("./test.csv")):
             os.remove("./test.csv")
-        for i in range(1, n+1):
+        for i in range(1, n + 1):
             self.testProfile(fn_code, i)
         self.fixCSV()
+
 
 if __name__ == "__main__":
     p = Profiler()
@@ -81,5 +82,5 @@ if __name__ == "__main__":
     print("<----------------- MEMORY USAGE ----------------->")
     p.testMemUsage(1, 25, 13)
     print("<----------------- RUNTIME DATA ----------------->")
-    #p.testProfile(1, 9, 13)
-    p.getNRuntimes(1,9,13)
+    # p.testProfile(1, 9, 13)
+    p.getNRuntimes(1, 9, 13)

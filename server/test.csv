@@ -3,7 +3,7 @@
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -12,7 +12,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -21,7 +21,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-3/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+3/1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -30,7 +30,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-5/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+5/1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -39,7 +39,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-9/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+9/1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -48,7 +48,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-15/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+15/1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -57,7 +57,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-25/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+25/1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -66,7 +66,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-41/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+41/1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -75,7 +75,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-67/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+67/1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -84,7 +84,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-109/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+109/1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -93,7 +93,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-177/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+177/1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -102,16 +102,16 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-287/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+287/1,0.000,0.000,0.000,0.000,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
-466,function,calls,(2,primitive,calls) in 0.000 seconds
+466,function,calls,(2,primitive,calls) in 0.001 seconds
 
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-465/1,0.000,0.000,0.000,0.000,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+465/1,0.001,0.000,0.001,0.001,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -120,7 +120,7 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-753/1,0.001,0.000,0.001,0.001,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+753/1,0.001,0.000,0.001,0.001,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
@@ -129,7 +129,97 @@ ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
 Ordered,by:,cumulative,time
 
 ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
-1219/1,0.001,0.000,0.001,0.001,C:\Users\Austin Cho\PycharmProjects\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1219/1,0.001,0.000,0.001,0.001,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
+
+
+1974,function,calls,(2,primitive,calls) in 0.002 seconds
+
+Ordered,by:,cumulative,time
+
+ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
+1973/1,0.002,0.000,0.002,0.002,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
+
+
+3194,function,calls,(2,primitive,calls) in 0.002 seconds
+
+Ordered,by:,cumulative,time
+
+ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
+3193/1,0.002,0.000,0.002,0.002,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
+
+
+5168,function,calls,(2,primitive,calls) in 0.003 seconds
+
+Ordered,by:,cumulative,time
+
+ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
+5167/1,0.003,0.000,0.003,0.003,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
+
+
+8362,function,calls,(2,primitive,calls) in 0.004 seconds
+
+Ordered,by:,cumulative,time
+
+ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
+8361/1,0.004,0.000,0.004,0.004,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
+
+
+13530,function,calls,(2,primitive,calls) in 0.008 seconds
+
+Ordered,by:,cumulative,time
+
+ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
+13529/1,0.008,0.000,0.008,0.008,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
+
+
+21892,function,calls,(2,primitive,calls) in 0.016 seconds
+
+Ordered,by:,cumulative,time
+
+ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
+21891/1,0.016,0.000,0.016,0.016,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
+
+
+35422,function,calls,(2,primitive,calls) in 0.027 seconds
+
+Ordered,by:,cumulative,time
+
+ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
+35421/1,0.027,0.000,0.027,0.027,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
+
+
+57314,function,calls,(2,primitive,calls) in 0.033 seconds
+
+Ordered,by:,cumulative,time
+
+ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
+57313/1,0.033,0.000,0.033,0.033,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
+
+
+92736,function,calls,(2,primitive,calls) in 0.051 seconds
+
+Ordered,by:,cumulative,time
+
+ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
+92735/1,0.051,0.000,0.051,0.051,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
+1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
+
+
+150050,function,calls,(2,primitive,calls) in 0.086 seconds
+
+Ordered,by:,cumulative,time
+
+ncalls,tottime,percall,cumtime,percall,filename:lineno(function)
+150049/1,0.086,0.000,0.086,0.086,C:\Users\Calvin\Documents\UBC\Year 4\Summer Term 1\CPSC 410\PerformanceVisualization\server\functioncalls.py:4(fibonacci)
 1,0.000,0.000,0.000,0.000,{method 'disable' of '_lsprof.Profiler' objects}
 
 
