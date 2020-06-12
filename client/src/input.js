@@ -106,46 +106,91 @@ class Input extends Component {
     }
 
     createGraphs(data) {
-        // TODO: parse (x,y) points for graphs from data parameter
+        let xActual = [];
+        let xPrediction = [];
+        let yPrediction = [];
+        let i = 1;
+        while (i <= data["n"]) {
+            xActual.push(i);
+            if (i === data["n"]){
+                xPrediction.push(i);
+            }
+            i++;
+        }
+        while(i <= data["m"]) {
+            xPrediction.push(i);
+            i++;
+        }
+        let yActual = data["actual"];
+        data["prediction"].unshift(yActual.slice(-1)[0]);
+        yPrediction = data["prediction"];
 
         let traceData, layout;
-        switch (this.state.graphSelected) {
+        switch (data["graphSelected"]) {
             case "line":
                 let trace = {
-                    x:[1,2,3,4,5],
-                    y:[1,2,3,4,15],
+                    x:xActual,
+                    y:yActual,
                     mode: 'lines',
-                    name: 'Test'
+                    name: 'Actual'
                 }
-                traceData = [trace];
+                let tracePred = {
+                    x:xPrediction,
+                    y:yPrediction,
+                    mode:'dot',
+                    name: 'Prediction'
+                }
+                traceData = [trace, tracePred];
                 layout = {
-                    title: 'Line Chart'
+                    title: 'Runtime Line Chart',
+                    xaxis: {title: 'Input Size (n)'},
+                    yaxis: {title: 'Runtime (ms)'}
                 };
                 break;
 
             case "bar":
+                xPrediction.shift();
+                yPrediction.shift();
                 let bar = {
-                    x:[1,2,3,4,5],
-                    y:[1,2,3,4,5],
-                    type: 'bar'
+                    x:xActual,
+                    y:yActual,
+                    type: 'bar',
+                    name: 'Actual'
                 }
-                traceData = [bar];
+                let barPred = {
+                    x:xPrediction,
+                    y:yPrediction,
+                    type: 'bar',
+                    name: 'Prediction'
+                }
+                traceData = [bar, barPred];
                 layout = {
-                    title: 'Bar Report'
+                    title: 'RunTime Bar Chart',
+                    xaxis: {title: 'Input Size (n)'},
+                    yaxis: {title: 'Runtime (ms)'},
                 }
                 break;
 
             case "area":
                 let area = {
-                    x:[1,2,3,4,5],
-                    y:[1,2,3,4,15],
-                    mode: 'lines',
+                    x:xActual,
+                    y:yActual,
+                    mode: 'line',
                     fill: 'tozeroy',
-                    name: 'Test'
+                    name: 'Actual'
                 }
-                traceData = [area];
+                let areaPred = {
+                    x:xPrediction,
+                    y:yPrediction,
+                    mode: 'line',
+                    fill: 'tozeroy',
+                    name: 'Prediction'
+                }
+                traceData = [area, areaPred];
                 layout = {
-                    title: 'Runtime Area Chart'
+                    title: 'Runtime Area Chart',
+                    xaxis: {title: 'Input Size (n)'},
+                    yaxis: {title: 'Runtime (ms)'}
                 };
                 break;
         }

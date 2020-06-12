@@ -29,22 +29,19 @@ def submit():
     predictionVal = int(json_data['predictionValue'])
     fn_code = int(json_data['functionSelected'])
     # profiling_data = profileclient.Profiler().testProfile(fn_code, inputVal)
-    mock_return_obj = {
-        "points": [
-            [1,1],
-            [2,2],
-            [3,3],
-            [4,4],
-            [5,5]
-        ],
-        "n": inputVal,
-        "m": predictionVal
-    }
 
     p = Profiler()
     p.getNRuntimes(fn_code, inputVal, predictionVal)
-    regression.predict(inputVal, predictionVal)
-    return jsonify(status=200, data=mock_return_obj)
+    data_obj = regression.predict(inputVal, predictionVal)
+
+    return_obj = {
+        "graphSelected": json_data['graphSelected'],
+        "prediction": data_obj["predictions"],
+        "actual": data_obj["actual"],
+        "n": inputVal,
+        "m": predictionVal
+    }
+    return jsonify(status=200, data=return_obj)
 
 if __name__ == '__main__':
     app.run()

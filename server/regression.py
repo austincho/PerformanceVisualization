@@ -13,8 +13,9 @@ from sklearn.preprocessing import StandardScaler
 from server.app import *
 
 def predict(input, prediction):
-
+    actual = []
     df_train = pd.read_csv("./final.csv", header=0, index_col=False)
+    actual = df_train["tottime"].tolist()
     df_train, df_test = train_test_split(df_train, test_size=0.1, random_state=100)
 
     target = ["tottime"]
@@ -59,5 +60,6 @@ def predict(input, prediction):
     # now predict can be used with lr
     for x in range(input + 1, prediction + 1):
         predictions.extend(lr.predict([[x]]))
-    print(predictions)
-    return predictions
+
+    return {"predictions": predictions,
+            "actual": actual}

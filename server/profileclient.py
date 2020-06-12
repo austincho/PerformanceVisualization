@@ -25,7 +25,7 @@ class Profiler:
             n = arr
         pr = cProfile.Profile()
         function = self.get_function(fn_code)
-        print(function)
+        # print(function)
         pr.enable()
         function(n)
         pr.disable()
@@ -33,7 +33,7 @@ class Profiler:
         s = io.StringIO()
         ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
         ps.print_stats()
-        print(s.getvalue())
+        # print(s.getvalue())
         result  = s.getvalue()
         result='\n'.join([','.join(line.rstrip().split(None,5)) for line in result.split('\n')])
         # save it to disk
@@ -47,7 +47,7 @@ class Profiler:
             for row in spamreader:
                 if(len(row) > 5):
                     if("functioncalls" in row[5]):
-                        print("hit")
+                        # print("hit")
                         with open('./final.csv', 'a', newline='') as file:
                             writer = csv.writer(file)
                             row.pop(5)
