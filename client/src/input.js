@@ -65,6 +65,8 @@ class Input extends Component {
         if (this.state.graphSelected !== 0 && this.state.functionSelected !== 0 && this.state.input !== '' && this.state.prediction !== '') {
             if (parseInt(this.state.prediction) <= 0 || parseInt(this.state.input) <= 0) {
                 this.setState({showError: true, errorText: 'Please choose an Integer > 0'});
+            } else if (parseInt(this.state.prediction) <= parseInt(this.state.input)) {
+                this.setState({showError: true, errorText: 'Please choose a prediction value > input value'});
             } else {
                 this.setState({showError: false, errorText: ''});
                 this.submitForm();
