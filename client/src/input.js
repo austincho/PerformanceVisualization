@@ -145,7 +145,7 @@ class Input extends Component {
                 }
                 traceData = [area];
                 layout = {
-                    title: 'Memory Usage Area Chart'
+                    title: 'Runtime Area Chart'
                 };
                 break;
         }
