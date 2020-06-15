@@ -2,8 +2,8 @@ import time
 from flask import Flask
 from flask import jsonify, request, make_response
 
-from server import regression, profileclient
-from server.profileclient import Profiler
+import regression, profileclient
+from profileclient import Profiler
 
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def submit():
 
     p = Profiler()
     p.getNRuntimes(fn_code, inputVal, predictionVal)
-    data_obj = regression.predict(inputVal, predictionVal)
+    data_obj = regression.predict(fn_code, inputVal, predictionVal)
 
     return_obj = {
         "graphSelected": json_data['graphSelected'],

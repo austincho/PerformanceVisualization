@@ -54,3 +54,9 @@ def merge_sort(arr):
             arr[k] = R[j]
             j += 1
             k += 1
+
+
+def length(n):
+    arr = []
+    for i in range(n):
+        arr.append(i)

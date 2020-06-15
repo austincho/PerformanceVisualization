@@ -1,5 +1,5 @@
 import cProfile, pstats
-from functioncalls import fibonacci, square_root, merge_sort
+from functioncalls import fibonacci, square_root, merge_sort, length
 import tracemalloc
 import io
 import numpy as np
@@ -19,6 +19,8 @@ class Profiler:
             return square_root
         elif fn_code == 3:
             return merge_sort
+        elif fn_code == 4:
+            return length
 
     def testProfile(self, fn_code, n):
         if (fn_code == 3):
