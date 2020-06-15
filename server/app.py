@@ -2,8 +2,8 @@ import time
 from flask import Flask
 from flask import jsonify, request, make_response
 
-import regression, profileclient
-from profileclient import Profiler
+from server import regression, profileclient
+from server.profileclient import Profiler
 
 
 app = Flask(__name__)

@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, PolynomialFeatures
 from scipy.optimize import curve_fit
 
-from app import *
+from server.app import *
 
 
 def fib_exp_regression(predict_vals):
