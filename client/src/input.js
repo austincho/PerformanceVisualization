@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import TextField from '@material-ui/core/TextField';
@@ -23,6 +24,7 @@ class Input extends Component {
             functionSelected: 0,
             errorText: '',
             showError: false,
+            loading: false,
             graphs:    [
                 {
                     value: 0,
@@ -39,7 +41,7 @@ class Input extends Component {
                 {
                     value: 'area',
                     label: 'Area',
-            }],
+                }],
             functions: [
                 {
                     value: 0,
@@ -56,23 +58,28 @@ class Input extends Component {
                 {
                     value: 3,
                     label: 'Merge Sort n random integers'
+                },
+                {
+                    value: 4,
+                    label: 'Length of an array of size n'
                 }
             ]
         }
     }
 
     submit() {
+        this.setState({loading: true});
         if (this.state.graphSelected !== 0 && this.state.functionSelected !== 0 && this.state.input !== '' && this.state.prediction !== '') {
             if (parseInt(this.state.prediction) <= 0 || parseInt(this.state.input) <= 0) {
-                this.setState({showError: true, errorText: 'Please choose an Integer > 0'});
+                this.setState({showError: true, errorText: 'Please choose an Integer > 0', loading: false});
             } else if (parseInt(this.state.prediction) <= parseInt(this.state.input)) {
-                this.setState({showError: true, errorText: 'Please choose a prediction value > input value'});
+                this.setState({showError: true, errorText: 'Please choose a prediction value > input value', loading: false});
             } else {
                 this.setState({showError: false, errorText: ''});
                 this.submitForm();
             }
         } else {
-            this.setState({showError: true, errorText: 'Please provide input for every box in the form.'});
+            this.setState({showError: true, errorText: 'Please provide input for every box in the form.', loading: false});
         }
     }
 
@@ -100,9 +107,10 @@ class Input extends Component {
             }).then(output => {
             console.log(output);
             this.createGraphs(output.data);
+            this.setState({loading: false});
         }).catch(e => {
             console.log('error: ', e);
-            this.setState({showError: true, errorText: 'error'});
+            this.setState({showError: true, errorText: 'error', loading: false});
             console.log(this.state.errorText);
         });
     }
@@ -281,7 +289,8 @@ class Input extends Component {
                     <Alert className="error" severity="error">{this.state.errorText}</Alert>
                     }
                 </div>
-                {this.state.data !== null && this.state.layout !== null &&
+                {this.state.loading === true && <div><CircularProgress /><span>loading...</span></div>}
+                {this.state.data !== null && this.state.layout !== null && !this.state.loading && !this.state.showError &&
                 <Plot
                     data={this.state.data}
                     layout={this.state.layout}
